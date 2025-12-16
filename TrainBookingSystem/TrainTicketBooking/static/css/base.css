@@ -1,0 +1,169 @@
+/* =====================================================
+   GLOBAL STYLES
+===================================================== */
+body {
+    background-color: #f8f9fa;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+.navbar {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.navbar-brand img {
+    height: 42px;
+}
+
+.profile-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Menu items */
+.navbar-nav .nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Glow effect on hover */
+.navbar-nav .nav-link:hover {
+    color: #0d6efd !important;
+    text-shadow: 0 0 8px rgba(13, 110, 253, 0.8),
+                 0 0 15px rgba(13, 110, 253, 0.6);
+}
+
+/* Underline animation */
+.navbar-nav .nav-link::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #0d6efd;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Active link */
+.navbar-nav .nav-link.active {
+    color: #0d6efd !important;
+    text-shadow: 0 0 10px rgba(13, 110, 253, 1);
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+.hero-section {
+    padding: 60px 0;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* =====================================================
+   BUTTON INTERACTION
+===================================================== */
+.btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+.card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+/* =====================================================
+   LIST GROUP
+===================================================== */
+.list-group-item {
+    background: transparent;
+    font-size: 1.05rem;
+    padding-left: 0;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.list-group-item:hover {
+    background: #f1f7ff;
+    padding-left: 12px;
+}
+
+/* =====================================================
+   IMAGES
+===================================================== */
+img {
+    transition: transform 0.4s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+    background: linear-gradient(135deg, #1c1c1c, #333);
+    color: #ddd;
+    padding: 25px 0;
+}
+
+footer a {
+    color: #bbb;
+    margin: 0 8px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0d6efd;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

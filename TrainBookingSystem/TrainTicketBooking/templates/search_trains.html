@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block title %}Search Trains{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Search Trains</h2>
+
+<!-- 🔍 SEARCH FORM -->
+<form method="get" class="row g-3 mb-4 align-items-end">
+
+    <!-- SOURCE -->
+    <div class="col-md-4">
+        <label class="form-label">From</label>
+        <input type="text"
+               id="source"
+               name="source"
+               value="{{ request.GET.source }}"
+               class="form-control"
+               placeholder="Source">
+    </div>
+
+    <!-- 🔁 SWAP BUTTON -->
+    <div class="col-md-1 text-center">
+        <button type="button"
+                class="btn btn-outline-secondary mt-4"
+                onclick="swapRoutes()">
+            Switch
+        </button>
+    </div>
+
+    <!-- DESTINATION -->
+    <div class="col-md-4">
+        <label class="form-label">To</label>
+        <input type="text"
+               id="destination"
+               name="destination"
+               value="{{ request.GET.destination }}"
+               class="form-control"
+               placeholder="Destination">
+    </div>
+
+    <!-- DATE -->
+    <div class="col-md-3">
+        <label class="form-label">Travel Date</label>
+        <input type="date"
+               name="travel_date"
+               value="{{ request.GET.travel_date }}"
+               class="form-control">
+    </div>
+
+    <!-- SEARCH BUTTON -->
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-primary w-100">
+            Search Trains
+        </button>
+    </div>
+
+</form>
+
+<!-- 🚆 TRAIN RESULTS -->
+{% if trains %}
+<table class="table table-hover align-middle">
+    <thead>
+        <tr>
+            <th>Train</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for train in trains %}
+        <tr>
+            <td>{{ train.name }}</td>
+            <td>{{ train.source }}</td>
+            <td>{{ train.destination }}</td>
+            <td>{{ train.travel_date }}</td>
+            <td>{{ train.departure_time|time:"H:i" }}</td>
+            <td>{{ train.arrival_time|time:"H:i" }}</td>
+            <td>£{{ train.price }}</td>
+            <td>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'book_train' train.id %}"
+                       class="btn btn-success btn-sm">
+                        Book
+                    </a>
+                {% else %}
+                    <a href="{% url 'login' %}"
+                       class="btn btn-warning btn-sm">
+                        Login to Book
+                    </a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="text-muted">No trains found.</p>
+{% endif %}
+
+<!-- 🔁 SWAP SCRIPT -->
+<script>
+function swapRoutes() {
+    const source = document.getElementById("source");
+    const destination = document.getElementById("destination");
+
+    const temp = source.value;
+    source.value = destination.value;
+    destination.value = temp;
+}
+</script>
+
+{% endblock %}

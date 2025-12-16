@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+{% block title %}Home | IpswichRail{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="row align-items-center mb-5">
+    <div class="col-md-6">
+        <h1 class="fw-bold">Welcome to IpswichRail</h1>
+        <p class="lead">
+            IpswichRail is a modern train booking platform designed to simplify
+            rail travel across the United Kingdom. Search for trains, view schedules,
+            book tickets, and manage your journeys with ease.
+        </p>
+        <a href="#" class="btn btn-primary btn-lg mt-3">
+            Search Trains
+        </a>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="{% static 'images/train.png' %}" class="img-fluid rounded" alt="Train Image">
+    </div>
+</div>
+
+<!-- ABOUT UK RAIL NETWORK -->
+<div class="mb-5">
+    <h2 class="mb-3">About the UK Rail Network</h2>
+    <p>
+        The United Kingdom has one of the oldest and most extensive railway networks
+        in the world, connecting major cities, towns, and rural areas. Millions of
+        passengers rely on UK rail services every day for commuting, leisure, and
+        long-distance travel.
+    </p>
+    <p>
+        IpswichRail provides access to a wide range of train services operated by
+        different rail companies, ensuring flexibility, affordability, and convenience
+        for all travellers.
+    </p>
+</div>
+
+<!-- MAJOR TRAIN LINES -->
+<div class="mb-5">
+    <h2 class="mb-4">Major Train Lines in the United Kingdom</h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">East Coast Main Line</h5>
+                    <p class="card-text">
+                        Connecting London King's Cross with major cities such as
+                        Leeds, York, Newcastle, and Edinburgh, this line is one of
+                        the most important long-distance routes in the UK.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">West Coast Main Line</h5>
+                    <p class="card-text">
+                        Running from London Euston to Birmingham, Manchester,
+                        Liverpool, and Glasgow, this line supports high-speed
+                        intercity travel.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Great Western Main Line</h5>
+                    <p class="card-text">
+                        Serving routes between London Paddington and cities such as
+                        Reading, Bristol, Cardiff, and Swansea, this line plays a
+                        key role in western England and Wales.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Midland Main Line</h5>
+                    <p class="card-text">
+                        Connecting London St Pancras to Leicester, Nottingham,
+                        Derby, and Sheffield, this route is essential for the
+                        Midlands region.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- WHY CHOOSE IPSWICHRAIL -->
+<div class="mb-5">
+    <h2 class="mb-3">Why Choose IpswichRail?</h2>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">✔ Easy and fast train search across UK routes</li>
+        <li class="list-group-item">✔ Secure booking and reservation management</li>
+        <li class="list-group-item">✔ Access to multiple UK train operators</li>
+        <li class="list-group-item">✔ User-friendly interface and modern design</li>
+    </ul>
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="text-center mt-5">
+    <h3>Start Your Journey Today</h3>
+    <p>Search for available trains and plan your next trip with confidence.</p>
+    <a href="#" class="btn btn-success btn-lg">
+        Book a Train
+    </a>
+</div>
+
+{% endblock %}

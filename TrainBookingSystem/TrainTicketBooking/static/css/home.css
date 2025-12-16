@@ -1,0 +1,107 @@
+/* ===== HOME PAGE ONLY ===== */
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa, #e9f2ff);
+    border-radius: 20px;
+    margin-bottom: 60px;
+}
+
+.hero-section h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    animation: slideInLeft 1s ease;
+}
+
+.hero-section p {
+    font-size: 1.15rem;
+    color: #555;
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+/* Call-to-action buttons */
+.hero-section .btn {
+    margin-top: 25px;
+}
+
+/* Cards */
+.home-card {
+    border-radius: 18px;
+    transition: all 0.4s ease;
+    background: #fff;
+}
+
+.home-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+
+/* UK Lines Section */
+.uk-lines {
+    margin-top: 70px;
+}
+
+.uk-lines h2 {
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* List Group Animation */
+.list-group-item {
+    font-size: 1.05rem;
+    transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.list-group-item:hover {
+    background: #f1f7ff;
+    padding-left: 15px;
+}
+
+/* Images */
+.hero-section img {
+    animation: fadeZoom 1.2s ease;
+}
+
+/* Call To Action */
+.call-to-action {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0d6efd, #084298);
+    color: white;
+    border-radius: 20px;
+}
+
+.call-to-action .btn {
+    background: #fff;
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+.call-to-action .btn:hover {
+    background: #e9ecef;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -5,15 +5,15 @@ import random
 
 
 class Command(BaseCommand):
-    help = "Generate trains for December & January with dynamic pricing"
+    help = "Delete all previous trains and generate trains for next 30 days"
 
     def handle(self, *args, **kwargs):
 
         today = date.today()
 
-        # 🗑 DELETE OLD DATA
+        # 🗑 DELETE ALL PREVIOUS DATA
         Train.objects.all().delete()
-        self.stdout.write("🗑 Old train data deleted")
+        self.stdout.write(self.style.WARNING("🗑 All previous train data deleted"))
 
         cities = [
             "London",
@@ -23,18 +23,18 @@ class Command(BaseCommand):
             "Liverpool",
             "Edinburgh",
             "Glasgow",
-            "ipswich",
+            "Ipswich",
             "Cambridge",
             "Oxford",
-            "nottingham",
+            "Nottingham",
             "Norwich",
             "York",
             "Sheffield"
         ]
 
-        # 📆 DATE RANGE (DECEMBER + JANUARY)
-        start_date = date(today.year, 12, 1)
-        end_date = date(today.year + 1, 1, 31)
+        # 📆 DATE RANGE → TODAY TO NEXT 30 DAYS
+        start_date = today
+        end_date = today + timedelta(days=30)
 
         current_date = start_date
 
@@ -42,7 +42,7 @@ class Command(BaseCommand):
 
             days_before = (current_date - today).days
 
-            # 💰 PRICE LOGIC
+            # 💰 SMART PRICING
             if days_before >= 30:
                 price_range = (20, 40)
             elif days_before >= 15:
@@ -63,7 +63,7 @@ class Command(BaseCommand):
                     m_arrival = min(m_depart + m_duration, 23)
 
                     Train.objects.create(
-                        name=f"{source[:3]}-{destination[:3]}-M{random.randint(100,999)}",
+                        name=f"{source[:3]}-{destination[:3]}-M{random.randint(100, 999)}",
                         source=source,
                         destination=destination,
                         travel_date=current_date,
@@ -78,7 +78,7 @@ class Command(BaseCommand):
                     e_arrival = min(e_depart + e_duration, 23)
 
                     Train.objects.create(
-                        name=f"{source[:3]}-{destination[:3]}-E{random.randint(100,999)}",
+                        name=f"{source[:3]}-{destination[:3]}-E{random.randint(100, 999)}",
                         source=source,
                         destination=destination,
                         travel_date=current_date,
@@ -89,6 +89,6 @@ class Command(BaseCommand):
 
             current_date += timedelta(days=1)
 
-        self.stdout.write(self.style.SUCCESS(
-            "✅ Trains generated for December & January with smart pricing!"
-        ))
+        self.stdout.write(
+            self.style.SUCCESS("✅ Trains generated for the next 30 days successfully!")
+        )

@@ -27,10 +27,16 @@ DEBUG = True  # Render will still work; set False later if needed
 # --------------------------------------------------
 # ALLOWED HOSTS (FIXED FOR RENDER)
 # --------------------------------------------------
-ALLOWED_HOSTS = os.getenv(
-    "ALLOWED_HOSTS",
-    ".onrender.com,localhost,127.0.0.1"
-).split(",")
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".onrender.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+]
+
 
 
 # --------------------------------------------------
